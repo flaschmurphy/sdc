@@ -22,26 +22,25 @@ My pipeline consists of the following steps:
  1. **Convert to Grayscale** 
  
  Converting the image to grayscale removes all color which makes later steps in
- the pipeline easier. For example, instead of being concerned with both white
- and yellow lane lines, in grayscale we only need to consider shades from white
- to black. Converting is a simple line of code to call the `cv2.cvtColor(img,
+ the pipeline easier. Instead of being concerned with both white and yellow
+ lane lines, in grayscale we only need to consider shades from white to black.
+ The conversion is a single line of code calling the `cv2.cvtColor(img,
  cv2.COLOR_RGB2GRAY)` api from OpenCV.
 
  2. **Apply Gaussian Blur** 
  
- Applying Gaussian smoothing has the affect of reducing noise from the image
- while leaving the signal data intact. This is required in particular for Canny
- Edge detection.
+ Applying Gaussian smoothing reduces noise from the image while leaving the
+ signal data intact. This is required in particular for Canny Edge detection.
 
  3. **Apply Canny Edge Detection** 
  
- Canny filtering look at the areas in the image where the rate of change
- between points is high. It outputs an image of dots that represent the edges
- of objects in scenes. 
+ Canny filtering finds the areas in the image where the rate of change between
+ points is high. It outputs an image of dots that represent the edges of
+ objects in scenes. 
 
  4. **Crop the image** 
  
- The nest step is to crop the image to an area where we can reasonably expect
+ The next step is to crop the image to an area where we can reasonably expect
  to find lane lines. The simple representation is a triangle that covers the
  entirety of the bottom of the image and extends upwards to the middle.
 
