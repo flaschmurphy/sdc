@@ -126,14 +126,21 @@ markings).
 Another improvement could be to add error correction and smoothing to combat
 noise that escapes into the system producing sudden changes in prediction
 lines. For example, if the slope of a lane line were to change very rapidly
-between frames, more so than is would be assumed possible by a reasonable
-person, then this is a sign of noise in the system. A probability function
-could then be employed to paint the 'correct' lane line instead for that frame.
+between frames, more than would be considered possible by a reasonable
+person, this would be a sign of noise in the system. A smoothing/probability 
+function could then be employed to paint the 'correct' lane line instead for 
+that frame.
 
 Finally, it might be the case that using a simple triangle shape for the
 cropping area could be improved upon. For example a trapezoid might produce
 better results for certain conditions, but may also suffer from needing it's
 top corners adjusted depending on road and lighting conditions. 
+
+Feedback: This research paper http://airccj.org/CSCP/vol5/csit53211.pdf goes
+into how to detect curves and will also help in detecting faded lanes. It uses
+an extended version of hough lines algorithm to detect tangents to the curve
+which can help you detect the curve.
+
 
 
 
