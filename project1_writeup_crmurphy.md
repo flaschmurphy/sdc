@@ -136,10 +136,27 @@ cropping area could be improved upon. For example a trapezoid might produce
 better results for certain conditions, but may also suffer from needing it's
 top corners adjusted depending on road and lighting conditions. 
 
-Feedback: This research paper http://airccj.org/CSCP/vol5/csit53211.pdf goes
-into how to detect curves and will also help in detecting faded lanes. It uses
-an extended version of hough lines algorithm to detect tangents to the curve
-which can help you detect the curve.
+### Feedback: 
+
+For challenge video, I suggest to experiment with HLS or HSV color space to
+detect white and yellow pixels in the image.  There are ways to draw the lanes
+other than using slopes. For example, you can warp the image(bird eye view) and
+then assume that the left side contains the left lane pixels and right half of
+the image contains the pixels for right lanes. These pixels can be stored and
+polyfit method can be used to fit a line. polyfit method can also be used to
+fit a curve which would be helpful for the curving roads. The search area in
+the image for right and left lanes can be narrowed down after achieving some
+confidence about the location of lane pixels in the image. It helps in speeding
+up the process of detecting lanes.
+
+For smoother results, you can save the lanes from the previous n frames and use
+those with the lanes from current frame. It also helps in cases where lanes is
+not detected at all.
+
+This research paper http://airccj.org/CSCP/vol5/csit53211.pdf goes into how to
+detect curves and will also help in detecting faded lanes. It uses an extended
+version of hough lines algorithm to detect tangents to the curve which can 
+help you detect the curve.
 
 
 
